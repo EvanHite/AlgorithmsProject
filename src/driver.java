@@ -45,6 +45,18 @@ public class driver {
             printRow("sorted", n, "merge", avgMs(() -> algs.mergeSort(copy(baseSorted)), TRIALS));
             printRow("equal",  n, "merge", avgMs(() -> algs.mergeSort(copy(baseEqual)),  TRIALS));
             System.out.println("");
+
+            // iterative tests
+            printRow("random", n, "iterative", avgMs(() -> algs.insertionSort(copy(baseRandom)), TRIALS));
+            printRow("sorted", n, "iterative", avgMs(() -> algs.insertionSort(copy(baseSorted)), TRIALS));
+            printRow("equal",  n, "iterative", avgMs(() -> algs.insertionSort(copy(baseEqual)),  TRIALS));
+            System.out.println("");
+
+            // quick tests
+            printRow("random", n, "quick", avgMs(() -> algs.quickSort(copy(baseRandom)), TRIALS));
+            printRow("sorted", n, "quick", avgMs(() -> algs.quickSort(copy(baseSorted)), TRIALS));
+            printRow("equal",  n, "quick", avgMs(() -> algs.quickSort(copy(baseEqual)),  TRIALS));
+            System.out.println("");
         }
     }
 
