@@ -20,6 +20,8 @@ public class test_algos {
         runTest("Bubble Sort", arr -> algs.bubbleSort(arr), original);
         runTest("Selection Sort", arr -> algs.selectionSort(arr), original);
         runTest("Merge Sort", arr -> algs.mergeSort(arr), original);
+        runTest("Merge Sort", arr -> algs.insertionSort(arr), original);
+        runTest("Merge Sort", arr -> algs.quickSort(arr), original);
     }
 
     // Main test function 

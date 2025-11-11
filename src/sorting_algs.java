@@ -1,4 +1,5 @@
 public class sorting_algs {
+    // Ethan
     public void bubbleSort(int[] arr){
         //bool to break out of loop if no elements are swapped(in order)
         boolean swapped = false;
@@ -94,4 +95,66 @@ public class sorting_algs {
             }
         }
     }
+
+    // Evan
+    // O(n^2) Time complexity insertion sort
+    public void insertionSort(int[] arr) {
+        for (int i = 1; i < arr.length; i++) {
+            int key = arr[i];
+            int j = i - 1;
+            while (j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j--;
+            }
+            arr[j + 1] = key;
+        }
+    }
+
+    // Quicksort
+    //average O(n log n) worst O(n^2)
+    public void quickSort(int[] arr) {
+        if (arr.length < 2) return;
+
+        int[] stack = new int[arr.length * 2];
+        int top = 0;
+
+        // push whole range
+        stack[top++] = 0;
+        stack[top++] = arr.length - 1;
+
+        while (top > 0) {
+            int r = stack[--top];
+            int l = stack[--top];
+
+            if (l >= r) continue;
+
+            // partition logic directly here (no helper)
+            int pivot = arr[r];
+            int i = l - 1;
+
+            for (int j = l; j < r; j++) {
+                if (arr[j] <= pivot) {
+                    i++;
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+
+            int temp = arr[i + 1];
+            arr[i + 1] = arr[r];
+            arr[r] = temp;
+
+            int p = i + 1; // pivot index after partition
+
+            // push right side
+            stack[top++] = p + 1;
+            stack[top++] = r;
+
+            // push left side
+            stack[top++] = l;
+            stack[top++] = p - 1;
+        }
+    }
+
 }
