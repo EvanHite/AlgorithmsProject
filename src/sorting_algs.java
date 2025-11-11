@@ -38,7 +38,7 @@ public class sorting_algs {
 
     private void merge(int[] arr, int l, int mid, int r){
         int n1 = mid - l + 1;
-        int n2 = r - mid + 1;
+        int n2 = r - mid; // Fixed the range by removing the + 1
 
         //creating temp arrays for l and r subarrs
         int[] arr1 = new int[n1];
@@ -82,7 +82,7 @@ public class sorting_algs {
 
     public void mergeSort(int[] arr){
         //iterate through subarrays of increasing size
-        for(int size = 1; size < arr.length - 1; size = 2 * size){
+        for(int size = 1; size < arr.length; size = 2 * size) { // Corrected the length here
 
             //pick our starting points of each subarr
             for (int start = 0; start < arr.length - 1; start += 2* size){
